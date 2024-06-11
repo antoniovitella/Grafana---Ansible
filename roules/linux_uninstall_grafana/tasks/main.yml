@@ -1,0 +1,17 @@
+---
+- name: Remove Grafana package
+  package:
+    name: grafana
+    state: absent
+
+- name: expose grafana
+  ansible.builtin.firewalld:
+    port: "{{grafana_http_port}}/tcp"
+    permanent: true
+    immediate: true
+    state: disabled
+
+- name: restart firewalld service
+  service:
+    name: firewalld
+    state: restarted

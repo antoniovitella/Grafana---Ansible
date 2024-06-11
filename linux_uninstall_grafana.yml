@@ -1,0 +1,7 @@
+---
+- name: Uninstall Grafana
+  hosts: grafana
+  become: true
+  become_user: root
+  roles:
+  - { role: "linux_uninstall_grafana", tags: "linux_uninstall_grafana" }

@@ -1,0 +1,12 @@
+---
+- name: expose grafana
+  ansible.builtin.firewalld:
+    port: "{{grafana_http_port}}/tcp"
+    permanent: true
+    immediate: true
+    state: enabled
+
+- name: restart firewalld service
+  service:
+    name: firewalld
+    state: restarted

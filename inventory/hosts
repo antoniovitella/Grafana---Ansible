@@ -1,0 +1,6 @@
+[grafana]
+<ip_address>
+
+[grafana:vars]
+ansible_user=<user>
+ansible_password=<password>

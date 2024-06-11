@@ -1,0 +1,11 @@
+---
+- hosts: grafana
+  serial: 1
+  become: true
+  roles:
+  - { role: "linux_install_grafana", tags: "linux_install_grafana" }
+  - { role: "linux_configure_grafana", tags: "linux_configure_grafana" }
+  - { role: "linux_restart_grafana", tags: "linux_restart_grafana" }
+  - { role: "linux_stop_grafana", tags: "linux_stop_grafana" }
+  - { role: "linux_start_grafana", tags: "linux_start_grafana" }
+  - { role: "linux_expose_grafana", tags: "linux_expose_grafana" }
